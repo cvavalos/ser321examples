@@ -43,16 +43,30 @@ public class Fraction {
          // Fraction *frac = [[Fraction alloc] init];
          Fraction frac = new Fraction();
 
+         if (args.length != 2) {
+            System.out.println("Incorrect format. Please input two integer arguments.");
+            return;
+         }
+
          // set the values
-         frac.setNumerator(1);
-         frac.setDenominator(3);
+         frac.setNumerator(Integer.parseInt(args[0]));
+
+         int denom = Integer.parseInt(args[1]);
+         if (denom == 0) {
+            System.out.println("Denominator cannot be zero! Please input a valid number.");
+            return;
+         }
+         frac.setDenominator(denom);
 
          // print it
          System.out.print("The fraction is: ");
          frac.print();
          System.out.println("");
 
-      }catch(Exception e) {
+      }catch (NumberFormatException e) {
+         System.out.println("Please input integers as arguments.");
+      }
+      catch(Exception e) {
          e.printStackTrace();
       }
    }
