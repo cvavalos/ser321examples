@@ -42,22 +42,25 @@ public class Fraction {
          // create a new instance
          // Fraction *frac = [[Fraction alloc] init];
          Fraction frac = new Fraction();
+         int num = 1;
+         int denom = 1;
 
-         if (args.length != 2) {
-            System.out.println("Incorrect format. Please input two integer arguments.");
-            return;
+         if (args.length > 0) {
+            num = Integer.parseInt(args[0]);
          }
 
-         // set the values
-         frac.setNumerator(Integer.parseInt(args[0]));
+         if (args.length > 1) {
+            denom = Integer.parseInt(args[1]);
+         }
 
-         int denom = Integer.parseInt(args[1]);
          if (denom == 0) {
             System.out.println("Denominator cannot be zero! Please input a valid number.");
             return;
          }
-         frac.setDenominator(denom);
 
+         frac.setNumerator(num);
+         frac.setDenominator(denom);
+         
          // print it
          System.out.print("The fraction is: ");
          frac.print();
